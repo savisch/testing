@@ -1,0 +1,15 @@
+.photocropper {
+    max-width: 400px;
+}
+
+.cropper-image {
+    display: block;
+    max-width: 100%;
+}
+
+.preview {
+    image {
+        width: 400px;
+        height: 400px;
+    }
+}
