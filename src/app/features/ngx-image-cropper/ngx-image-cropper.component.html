@@ -1,0 +1,45 @@
+<div id="photocropper">
+    <h2>Photocropper!</h2>
+
+    <div class="file-upload">
+        <input type="file" (change)="onFileChangeEvent($event)">
+    </div>
+
+   
+
+    <div class="image-preview">
+        <h2>Preview!</h2>
+        <img [src]="croppedImage"/>
+         <div class="cropper">
+            <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [aspectRatio]="4/4"
+            [maintainAspectRatio]="true"
+            [resizeToHeight]="48"
+            [resizeToWidth]="48"
+            [cropperMaxHeight]="200"
+            [cropperMaxWidth]="200"
+            [autoCrop]="false"
+            [alignImage]="'center'"
+            [transform]="{scale: currentScale}"
+            format="png"
+            (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()"
+            ></image-cropper>
+
+            <button 
+            *ngIf="isCropper"
+            mat-raised-button 
+            disableRipple 
+            class="crop-button"
+            (click)="cropImage()"
+            >Crop</button>
+
+            <!-- <div class="slider">
+                <mat-slider *ngIf="isCropper"></mat-slider>
+            </div> -->
+        </div>
+    </div>
+</div>

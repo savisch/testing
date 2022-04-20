@@ -1,0 +1,38 @@
+#photocropper {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        text-align: center;
+    }
+
+    .file-upload {
+        display: flex;
+        justify-content: center;
+    }
+
+    .image-preview {
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .cropper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+        }
+    }
+
+    
+
+
+
+
+    // .slider {
+    //     margin: 0 auto;
+    // }
+}
