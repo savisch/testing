@@ -1,0 +1,82 @@
+<div id="assignment-container">
+    <div id="assignment-list">
+        <mat-card class="assignment-select-header">
+            <mat-card-content>
+                Test Assignment Cards
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="assignment-select-cell" *ngFor="let assignment of assignmentSelectListRef">
+            <mat-card-content>
+                <div class="assignment-name">{{ assignment.name }}</div>
+            </mat-card-content>
+            <div class="row-actions" >
+                <mat-card-actions >
+                    <mat-checkbox
+                    name="{{ assignment.name }}"
+                    (change)="checkboxChange($event, 0)"
+                    ></mat-checkbox>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </div>
+
+    <div id="assignment-list">
+        
+        <mat-card class="assignment-select-header">
+            <mat-card-content>
+                Test Assignment Expansion Panels
+            </mat-card-content>
+        </mat-card>
+        <form [formGroup]="expansionForm">
+            <mat-expansion-panel 
+            hideToggle
+            disableRipple
+            class="expansion-select-cell" 
+            *ngFor="let assignment of assignmentSelectListRef, let i = index">
+                
+                <mat-expansion-panel-header disableRipple >
+                    <div class="expansion-cell-content">
+                        <div class="assignment-name">{{ assignment.name }}</div>
+                        <div class="expansion-actions" >
+                            <mat-checkbox
+                            disableRipple
+                            name="{{ assignment.name }}"
+                            
+                            (change)="checkboxChange($event, i)"
+                            ></mat-checkbox>
+                        </div>
+                    </div>
+                </mat-expansion-panel-header> 
+                
+                <div  *ngIf="panelOpenState[i]"  class="expansion-form">
+                        <form [formGroupName]="i">
+                            <mat-form-field 
+                            class="newAssignment" 
+                            >
+                                <input 
+                                matInput 
+                                placeholder="Name" 
+                                formControlName="name">
+                            </mat-form-field>
+                            <mat-form-field 
+                            class="newAssignment" 
+                            >
+                                <input 
+                                matInput 
+                                placeholder="Phone Number" 
+                                formControlName="phoneNumber">
+                            </mat-form-field>
+                        </form>
+                </div>
+            </mat-expansion-panel>
+
+        </form>
+    </div>
+</div>
+
+<div class="submit-button">
+    <button  mat-raised-button disableRipple (click)="onExpandedFormSubmit()">
+        Submit Expanded Assignments
+    </button>
+</div>
+
