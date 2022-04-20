@@ -1,0 +1,10 @@
+<input #file type="file" (change)="onFileChangeEvent(file)">
+
+<h2>Photocropper!</h2>
+
+<div *ngIf="imageSource">
+    <app-cropper-js
+    [imageSource]="imageSource"
+    >
+    </app-cropper-js>
+</div>
