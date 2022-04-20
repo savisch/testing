@@ -1,1 +1,97 @@
 /* You can add global styles to this file, and also import other style files */
+// * {
+//     padding: 0px;
+//     margin: 0px;
+//     box-sizing: border-box;
+// }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-icon {
+    color: #081f2d !important;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.mat-form-field-wrapper {
+    height: 44px !important;
+    padding-bottom: 0px !important;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.mat-form-field-flex {
+    height: 44px !important;
+    align-items: center !important;
+}
+
+.mat-form-field-outline {
+    display: none !important;
+}
+
+.mat-form-field-outline-thick {
+    display: none !important;
+}
+
+.mat-form-field-prefix {
+    margin-right: 10px;
+}
+.mat-form-field-suffix {
+    margin-right: 10px;
+    color: black;
+}
+
+// MAT EXPANSION
+
+.mat-expansion-panel {
+    .mat-expansion-panel-header {
+        padding-left: 15px !important;
+        padding-right: 0px !important;
+        pointer-events: none !important;
+
+        &.mat-expanded {
+            height: 48px !important;
+            border-bottom: 1px solid #c8c8c8;
+        }
+    }
+
+    .mat-expansion-panel-content {
+        align-items: center;
+
+        .mat-expansion-panel-body {
+            padding: 0px 0px 0px !important;
+        }
+    }
+}
+
+a {
+    margin-right: 15px !important;
+    height: 35px;
+
+     &:hover {
+         background-color: #c8c8c8;
+     }
+}
+
+button {
+    cursor: pointer;
+    height: 35px;
+    width: 100px;
+
+    &:hover {
+        background-color: #c8c8c8;
+    }    
+}
+
+.active-link {
+    background-color:#c8c8c8;
+    border: 1px inset #ebebeb;
+}
+
+.invalid-input {
+    .mat-form-field-wrapper{
+        border: 1px solid red !important;
+    }
+}
