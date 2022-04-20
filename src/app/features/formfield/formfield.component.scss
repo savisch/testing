@@ -1,0 +1,39 @@
+.mat-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 95vw;
+    max-width: 1200px;
+
+    .inputs {
+        display: flex;
+
+        .control {
+            flex-basis: 50%;
+            margin-right: 35px;
+            margin-bottom: 35px;
+        }
+    }
+
+    button {
+        width: 200px;
+    }
+
+    .coordinates {
+        padding-top: 60px;
+        text-decoration: underline;
+
+        .control {
+            margin-right: 35px;
+        }
+    }
+}
+
+#login-section, #geocode-section {
+    margin-bottom: 60px;
+}
+
+
+
+
+

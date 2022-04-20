@@ -1,0 +1,139 @@
+<form [formGroup]="testForm" class="mat-form">
+    <!-- LOGIN SECTION -->
+    <section id="login-section">
+        <div class="inputs">
+            <mat-form-field 
+            class="search" 
+            [class.invalid-input]="testForm.get('search')?.hasError('required')
+            && testForm.get('search')?.touched && testForm.get('search')?.dirty"
+            appearance="outline">
+                <input matInput placeholder="Placeholder" formControlName="search">
+                <mat-icon matPrefix svgIcon="magnify"></mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="inputs">
+            <mat-form-field 
+            *ngIf="isHidePassword"
+            class="password" 
+            [class.invalid-input]="testForm.get('password')?.hasError('required')
+                && testForm.get('password')?.touched && testForm.get('search')?.dirty"
+            appearance="outline">
+                <input matInput  type="password" placeholder="Placeholder" formControlName="password">
+                <mat-icon matSuffix svgIcon="hide_eye" (click)="toggleHide()"></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field 
+            *ngIf="!isHidePassword"
+            class="password" 
+            [class.invalid-input]="testForm.get('password')?.hasError('required')
+            && testForm.get('password')?.touched && testForm.get('password')?.dirty"
+            appearance="outline">
+                <input matInput type="text" placeholder="Placeholder" formControlName="password">
+                <mat-icon matSuffix svgIcon="show_eye" (click)="toggleHide()"></mat-icon>
+            </mat-form-field>
+        </div>
+    </section>
+    
+    <!-- GEOCODE-SECTION -->
+    <section id="geocode-section">
+        <div class="inputs">
+            <mat-form-field 
+            class="control" 
+            [class.invalid-input]="testForm.get('streetAddress')?.hasError('streetAddress')
+                && testForm.get('streetAddress')?.touched && testForm.get('streetAddress')?.dirty"
+            appearance="outline">
+                <input matInput placeholder="Street Address" formControlName="streetAddress">
+            </mat-form-field>
+
+            <mat-form-field 
+            class="control" 
+            [class.invalid-input]="testForm.get('city')?.hasError('city')
+                && testForm.get('city')?.touched && testForm.get('city')?.dirty"
+            appearance="outline">
+                <input matInput placeholder="City" formControlName="city">
+            </mat-form-field>
+        </div>
+        <div class="inputs">
+            <mat-form-field 
+            class="control" 
+            [class.invalid-input]="testForm.get('search')?.hasError('state')
+                && testForm.get('state')?.touched && testForm.get('state')?.dirty"
+            appearance="outline">
+                <input matInput placeholder="State" formControlName="state">
+            </mat-form-field>
+
+            <mat-form-field 
+            class="control" 
+            [class.invalid-input]="testForm.get('zipCode')?.hasError('zipCode')
+                && testForm.get('zipCode')?.touched && testForm.get('zipCode')?.dirty"
+            appearance="outline">
+                <input matInput placeholder="Zip Code" formControlName="zipCode">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button  disableRipple (click)="getCoordinates()">Get Coordinates *</button>
+
+        <div class="coordinates" *ngIf="coordinates !== null">
+            <h2>Coordinates:</h2>
+            <p>Latitude: {{ coordinates.lat }}</p>
+            <p>Longitude: {{ coordinates.lng }}</p>
+        </div>
+        <div class="coordinates" *ngIf="coordinates === null">
+            <h2>Coordinates:</h2>
+            <mat-form-field 
+            class="control" 
+            [class.invalid-input]="testForm.get('latitude')?.hasError('latitude')
+                && testForm.get('latitude')?.touched && testForm.get('latitude')?.dirty"
+            appearance="outline">
+                <input matInput placeholder="latitude" formControlName="latitude">
+            </mat-form-field>
+
+            <mat-form-field 
+            class="control" 
+            [class.invalid-input]="testForm.get('longitude')?.hasError('longitude')
+                && testForm.get('longitude')?.touched && testForm.get('longitude')?.dirty"
+            appearance="outline">
+                <input matInput placeholder="longitude" formControlName="longitude">
+            </mat-form-field>
+        </div>
+    </section>
+
+    <!-- ADD INPUTS SECTION -->
+    <section id="add-inputs-section">
+        <h2>Recipient Emails:</h2>
+    
+        <mat-form-field 
+        class="emailInput" 
+        [class.invalid-input]="testForm.get('email')?.hasError('email')
+        && testForm.get('email')?.touched && testForm.get('search')?.dirty"
+        appearance="outline">
+            <input matInput placeholder="Placeholder" formControlName="email">
+            <mat-icon matSuffix (click)="addEmailsControl()">add</mat-icon>
+        </mat-form-field>
+    </section>
+
+    <ng-container  *ngIf="!!emails.controls && emails.controls.length > 0"  formArrayName="emails">
+        <ng-container *ngFor="let emailsControl of emails?.controls, let i = index">
+            <div class="additional-email-element">
+                <mat-form-field 
+                class="newEmail" 
+                [class.invalid-input]="testForm.get('email')?.hasError('email')
+                    && testForm.get('email')?.touched && testForm.get('email')?.dirty || isMatchError"
+                appearance="outline">
+                    <input 
+                    matInput 
+                    placeholder="Recipient Email" 
+                    [formControlName]="i">
+                    <mat-icon matSuffix (click)="addEmailsControl()">add</mat-icon>
+                </mat-form-field>
+
+                <!-- <button class="remove-button">
+                    Remove Region
+                    <span class="remove-icon" (click)="removeRegionsControl(i)">
+                        <app-common-icon [name]="'delete-icon'"></app-common-icon>
+                    </span>
+                </button> -->
+            </div>
+        </ng-container>
+    </ng-container>
+</form>
+
