@@ -18,6 +18,7 @@ import { CropperJsComponent } from './features/cropper-js/cropper-js.component'
 import { FilePickerModule } from 'ngx-awesome-uploader';
 import { HomeComponent } from './features/home/home.component';
 import { MatExpansionComponent } from './features/mat-expansion/mat-expansion.component';
+import { NestedMatTabsComponent } from './features/nested-mat-tabs/nested-mat-tabs.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatExpansionComponent } from './features/mat-expansion/mat-expansion.co
     NgxAwesomeUploaderComponent,
     CropperJsComponent,
     HomeComponent,
-    MatExpansionComponent
+    MatExpansionComponent,
+    NestedMatTabsComponent
   ],
   imports: [
     BrowserModule,
