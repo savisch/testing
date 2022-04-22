@@ -10,6 +10,7 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 import { DomSanitizer } from '@angular/platform-browser';
 
 const MaterialComponents = [
@@ -21,7 +22,8 @@ const MaterialComponents = [
   MatSliderModule,
   MatCardModule,
   MatCheckboxModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatTabsModule
 
 ]
 
