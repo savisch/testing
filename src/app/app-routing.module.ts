@@ -5,6 +5,7 @@ import { FormfieldComponent } from './features/formfield/formfield.component';
 import { NgxImageCropperComponent } from './features/ngx-image-cropper/ngx-image-cropper.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NestedMatTabsComponent } from './features/nested-mat-tabs/nested-mat-tabs.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
   {
     path: 'mat-expansion',
     component: MatExpansionComponent,
+  },
+  { path: 'mat-tabs',
+    component: NestedMatTabsComponent
   },
   {
     path:'',
