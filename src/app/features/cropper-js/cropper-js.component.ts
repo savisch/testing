@@ -28,6 +28,10 @@ export class CropperJsComponent implements OnInit {
     this.imageDestination = canvas.toDataURL('image / png');
   }
 
+  clear(): void {
+    this.cropper.clear();
+  }
+
   ngOnInit(): void {
   }
 
