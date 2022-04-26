@@ -14,12 +14,12 @@ export class NgxImageCropperComponent implements OnInit {
 
   isCropper = false;
 
-  // position: CropperPosition = {
-  //   x1: -50,
-  //   y1: 50,
-  //   x2: ;
-  //   y2: ;
-  // }
+  cropper: CropperPosition = {
+    x1: 150,
+    y1: 150,
+    x2: 258,
+    y2: 258
+  }
 
   // transform!: Transform;
 
@@ -83,16 +83,23 @@ export class NgxImageCropperComponent implements OnInit {
 
   imageLoaded(): void {
     // show cropper
+    // setTimeout(() => {
+    //   this.cropper;
+    // },);
   }
 
   cropperReady(): void {
     // cropper ready
     this.isCropper = true;
-    const c = document.getElementsByClassName(
-      'ngx-ic-source-image'
-    ) as HTMLCollectionOf<HTMLElement>;
-    console.log(c[0]);
-    c[0].setAttribute('cdkDrag', 'true');
+    setTimeout(() => {
+      this.cropper = {
+        x1: 120,
+        y1: 120,
+        x2: 0,
+        y2: 0,
+      };
+    },);
+    
   }
 
   loadImageFailed(): void {
