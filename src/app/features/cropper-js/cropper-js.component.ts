@@ -13,21 +13,37 @@ export class CropperJsComponent implements OnInit {
 
   imageDestination = ''; 
   cropper!: Cropper;
+  croppedImage: any;
 
   constructor() { }
+
+  crop(): void {
+    this.cropper.crop();
+    // const canvas = this.cropper.getCroppedCanvas();
+    // this.imageDestination = canvas.toDataURL('image / png');
+  }
+
+  save(): void {
+    const canvas = this.cropper.getCroppedCanvas();
+    this.imageDestination = canvas.toDataURL('image / png');
+  }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.imageSource);
+    // console.log(this.imageSource);
     this.cropper = new Cropper(this.imageElement.nativeElement, {
       aspectRatio: 1,
-      // dragMode: 'move',
-      crop: () => {
-        const canvas = this.cropper.getCroppedCanvas();
-        this.imageDestination = canvas.toDataURL('image / png');
-      },
+      viewMode: 2,
+      dragMode: 'move',
+      // movable: true,
+      autoCrop: false,
+      // crop: () => {
+        // const canvas = this.cropper.getCroppedCanvas();
+        // this.imageDestination = canvas.toDataURL('image / png');
+        // console.log(this.imageDestination);
+      // },
     });
   }
 }
